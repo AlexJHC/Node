@@ -9,8 +9,8 @@ export const hashPasswords = (password: string): Promise<string> => {
   return bcrypt.hash(password, 6)
 }
 
-export const createJWT = (user: { id: string, username: string }) => {
-  return jwt.sign({id: user.id, username: user.username}, process.env.JWT_SECRET)
+export const createJWT = (user: { id: string; username: string }) => {
+  return jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET)
 }
 
 export const protect = (req, res, next) => {
@@ -18,14 +18,14 @@ export const protect = (req, res, next) => {
 
   if (!bearer) {
     res.status(401)
-    res.json({message: 'Not authorized'})
+    res.json({ message: 'Not authorized' })
   }
 
   const [, token] = bearer.split(' ')
 
   if (!token) {
     res.status(401)
-    res.json({message: 'Token not found'})
+    res.json({ message: 'Token not found' })
   }
 
   try {
@@ -33,7 +33,7 @@ export const protect = (req, res, next) => {
     next()
   } catch (err) {
     res.status(401)
-    res.json({message: 'Not valid token'})
+    res.json({ message: 'Not valid token' })
     return
   }
 }

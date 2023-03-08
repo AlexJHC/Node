@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports",
+        "fixStyle": "inline-type-imports"
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "@typescript-eslint/interface-name-prefix": ["off"],
+    "@typescript-eslint/no-non-null-assertion": ["off"],
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/ban-ts-ignore": ["off"],
+    "@typescript-eslint/ban-types": ["off"],
+    "prettier/prettier": "warn"
+  }
+}
