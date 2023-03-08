@@ -1,9 +1,12 @@
-import express from 'express'
+import express, {type Request, type Response} from 'express'
 import router from './router';
+import morgan from 'morgan'
 
 const app = express()
 
-app.get('/', (req, res) => {
+app.use(morgan('dev'))
+
+app.get('/', (req: Request, res: Response) => {
   res.status(200)
   res.json({message: 'hello'})
 })
