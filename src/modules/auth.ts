@@ -5,11 +5,11 @@ export const comparePasswords = (password: string, hash: string): Promise<boolea
   return bcrypt.compare(password, hash)
 }
 
-export const hashPasswords = (password:string) => {
+export const hashPasswords = (password: string): Promise<string> => {
   return bcrypt.hash(password, 6)
 }
 
-export const createJWT = (user) => {
+export const createJWT = (user: { id: string, username: string }) => {
   return jwt.sign({id: user.id, username: user.username}, process.env.JWT_SECRET)
 }
 
