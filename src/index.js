@@ -1,1 +1,7 @@
-const http = require('http')
+const app = require('./server')
+
+
+const port = 3001
+app.listen(port, ()=> {
+  console.log(`server at: http:://localhost:${port}`)
+})
